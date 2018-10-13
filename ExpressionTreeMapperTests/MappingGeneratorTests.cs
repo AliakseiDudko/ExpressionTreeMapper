@@ -5,12 +5,14 @@ namespace ExpressionTreeMapperTest
 {
     public class Foo
     {
-        public string ValueFoo1 { get; set; }
+        public string Value1 { get; set; }
+        public string Value2 { get; set; }
     }
 
     public class Bar
     {
-        public string ValueBar1 { get; set; }
+        public string Value1 { get; set; }
+        public string Value2 { get; set; }
     }
 
     [TestClass]
@@ -22,10 +24,11 @@ namespace ExpressionTreeMapperTest
             var mapGenerator = new MappingGenerator();
             var mapper = mapGenerator.Generate<Foo, Bar>();
 
-            var foo = new Foo { ValueFoo1 = "Foo1" };
-            var bar = mapper.Map(new Foo());
+            var foo = new Foo { Value1 = "Foo1", Value2 = "Foo2" };
+            var bar = mapper.Map(foo);
 
-            Assert.AreEqual(foo.ValueFoo1, bar.ValueBar1);
+            Assert.AreEqual(foo.Value1, bar.Value1);
+            Assert.AreEqual(foo.Value2, bar.Value2);
         }
     }
 }
