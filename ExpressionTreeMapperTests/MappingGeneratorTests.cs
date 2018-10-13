@@ -7,12 +7,14 @@ namespace ExpressionTreeMapperTest
     {
         public string Value1 { get; set; }
         public string Value2 { get; set; }
+        public int Value3 { get; set; }
     }
 
     public class Bar
     {
         public string Value1 { get; set; }
         public string Value2 { get; set; }
+        public int Value3 { get; set; }
     }
 
     [TestClass]
@@ -29,6 +31,7 @@ namespace ExpressionTreeMapperTest
 
             Assert.AreEqual(foo.Value1, bar.Value1);
             Assert.AreEqual(foo.Value2, bar.Value2);
+            Assert.AreEqual(foo.Value3, bar.Value3);
         }
     }
 }
